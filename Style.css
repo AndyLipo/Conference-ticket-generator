@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap');
+
+:root {
+    /* Colors */
+    --Neutral: #ffffff;
+    --300: #d2d1d6;
+    --500: #8784a4;
+    --700: #4b486a;
+    --900: #0c082b;
+    --Orange-500: #f57261;
+    --Orange-700: #e16151;
+
+    /* Gradient */
+    --gradient-text: linear-gradient(to right, #f37362, #ffffff);
+
+    /* Font */
+    --font-labels: 'Inconsolata', monospace;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+}
+
+/* ESTRUCTURA PRINCIPAL */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: var(--font-labels);
+    color: var(--Neutral);
+    background-color: var(--900);
+    /* Color de respaldo */
+    overflow-x: hidden;
+    /* Prevenir scroll horizontal */
+}
+
+/* Fondo como un elemento separado */
+body::before {
+    content: "";
+    background-image: url("/conference-ticket-generator-main/assets/images/background-desktop.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.main-container {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2vh 5vh;
+    /* Reducido el padding vertical */
+    min-height: auto;
+    /* Eliminado el valor negativo */
+}
+
+/* BACKGROUND IMGS */
+.img-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    /* Contenido dentro de sus límites */
+}
+
+.img-container picture,
+.img-container img {
+    background-color: transparent;
+    max-width: 100%;
+    height: auto;
+}
+
+.img-container>.img-linetop {
+    position: absolute;
+    top: 5vh;
+    right: 0;
+    background-color: transparent;
+}
+
+.img-container>.img-circletop {
+    position: absolute;
+    top: -10vh;
+    left: 0;
+    background-color: transparent;
+}
+
+.img-container>.img-linebottom {
+    position: absolute;
+    top: 37vh;
+    left: -15vh;
+    height: 90%;
+    background-color: transparent;
+}
+
+
+.img-container>.img-circle {
+    position: absolute;
+    width: 25vh;
+    top: 50vh;
+    right: 50vh;
+    background-color: transparent;
+}
+
+.img-container>.img-patternline {
+    position: absolute;
+    background-color: transparent;
+}
+
+/* CONTENIDO */
+header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: normal;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-family: var(--font-labels);
+    font-weight: var(--fw-bold);
+    font-size: 5vh;
+    color: var(--Neutral);
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    text-align: center;
+    max-width: 700px;
+    margin-top: 0;
+    margin-bottom: 1vh;
+    /* Eliminado el margen negativo */
+}
+
+/* header*/
+header>p {
+    margin-top: -1vh;
+    margin-bottom: 2vh;
+    /* Añadido para controlar espacio */
+
+    /* Ajustado para eliminar el margen negativo */
+    color: var(--300);
+}
+
+/* section princial */
+.main-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+    margin-bottom: 1vh;
+    /* Añadido para controlar el espacio inferior */
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 500px;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 70px;
+}
+
+.main-section>span {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 1.5vh;
+}
+
+.main-section>span button {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: flex-start;
+    order: 0;
+    width: 100%;
+}
+
+.main-section {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 1vh;
+
+}
+
+span>div {
+    margin-bottom: 0.5vh;
+    /* Reducido el espacio vertical */
+    font-weight: bold;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: normal;
+    width: 100%;
+}
+
+.avatar-h3 {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: -0.8vh;
+    font-weight: var(--fw-regular);
+    color: var(--300);
+    font-family: var(--font-labels);
+}
+
+
+span>h3 {
+    color: var(--300)
+}
+
+span>div {
+    color: var(--500);
+}
+
+p {
+    color: var(--500);
+}
+
+/*drag and drop label, input*/
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 400px;
+}
+
+.upload-container h3 {
+    margin-bottom: 12px;
+    color: var(--Neutral, #ffffff);
+    font-weight: 500;
+}
+
+.upload-area {
+    width: 57dvh;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    z-index: 10;
+    /* Mayor z-index */
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 85px;
+    border: 2px dashed var(--300, #5a5a89);
+    border-radius: 8px;
+    background-color: rgba(25, 24, 53, 0.7);
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.upload-label:hover {
+    border-color: var(--500, #8787ab);
+    background-color: rgba(35, 34, 65, 0.7);
+    border: 2px dashed var(--300, #5a5a89);
+}
+
+.upload-icon {
+    background-color: rgba(35, 34, 65, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.upload-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.upload-text {
+    color: var(--Neutral, #ffffff);
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ALINEACIÓN DEL ÍCONO CON EL TEXTO */
+.upload-info-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.upload-info-container picture {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.upload-info-container img {
+    width: 16px;
+    height: 16px;
+}
+
+.upload-info {
+    color: var(--500, #8787ab);
+    font-size: 12px;
+    margin: 0;
+    /* Eliminado margin-top */
+}
+
+/* Para corregir aspectos visuales cuando se arrastra un archivo */
+.upload-label.drag-over {
+    border-color: var(--Primary, #ff6b6b);
+    background-color: rgba(45, 44, 80, 0.7);
+}
+
+/* Preview Styles - AGREGAR A TU CSS */
+.preview-container {
+    display: none;
+    width: 54dvh;
+    /* Mismo ancho que upload-area */
+    position: relative;
+    margin-bottom: 8px;
+    text-align: center;
+    padding: 10px;
+    border: 2px dashed var(--500);
+    border-radius: 8px;
+    background-color: rgba(25, 24, 53, 0.7);
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.preview-container:hover {
+    border-color: var(--300);
+    background-color: rgba(35, 34, 65, 0.7);
+}
+
+.preview-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid var(--500);
+}
+
+.preview-actions {
+    margin-top: -11px;
+}
+
+.preview-btn {
+    background: rgba(60, 60, 100, 0.8);
+    border: 1px solid #4a4a6a;
+    color: white;
+    padding: 2px 2px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    /* margin: 0 5px; */
+    transition: background 0.3s ease;
+}
+
+
+.preview-btn:hover {
+    background: rgba(80, 80, 120, 0.8);
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 0;
+}
+
+/*form*/
+
+form {
+    color: var(--500);
+    width: 430px;
+    margin-top: -1dvh;
+}
+
+label {
+    font-weight: var(--fw-regular);
+    color: var(--300);
+    font-family: var(--font-labels);
+}
+
+input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--500);
+    border-radius: 8px;
+    background-color: transparent;
+    border-style: solid;
+    height: 30px;
+    width: 350px;
+    padding: 2px;
+    margin-bottom: 1vh;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(15px);
+}
+
+input::placeholder {
+    color: var(--300);
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover {
+    border-color: #9ca3af;
+    background-color: rgba(35, 34, 65, 0.7);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    background-color: rgba(45, 44, 80, 0.7);
+}
+
+
+button {
+    margin-top: 10px;
+    height: 40px;
+    width: 355px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--Orange-500);
+    font-family: var(--font-labels);
+    color: var(--900);
+    border: 1px solid;
+    border-style: none;
+    font-weight: 900;
+    font-size: medium;
+}
+
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+
+    .img-container>.img-circle {
+        right: 10dvh;
+        /* Ajuste para pantallas más pequeñas */
+    }
+}
