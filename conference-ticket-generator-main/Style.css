@@ -53,10 +53,32 @@ body::before {
     position: relative;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 2vh 5vh;
+    padding: 6vh 5vh;
     /* Reducido el padding vertical */
     min-height: auto;
     /* Eliminado el valor negativo */
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: normal;
+}
+
+.logo-img {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    height: 30px;
+    width: 140px;
+    margin-bottom: 5px;
+    margin-top: -4dvh;
 }
 
 /* BACKGROUND IMGS */
@@ -327,7 +349,7 @@ p {
 .upload-info-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     margin-top: 5px;
 }
 
@@ -342,6 +364,10 @@ p {
     height: 16px;
 }
 
+.upload-info-container.error img {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(95%) saturate(7471%) hue-rotate(356deg) brightness(100%) contrast(114%);
+}
+
 .upload-info {
     color: var(--500, #8787ab);
     font-size: 12px;
@@ -349,13 +375,19 @@ p {
     /* Eliminado margin-top */
 }
 
+.upload-info.error {
+    color: #ff4444;
+}
+
+
+
 /* Para corregir aspectos visuales cuando se arrastra un archivo */
 .upload-label.drag-over {
     border-color: var(--Primary, #ff6b6b);
     background-color: rgba(45, 44, 80, 0.7);
 }
 
-/* Preview Styles - AGREGAR A TU CSS */
+/* Preview Styles */
 .preview-container {
     display: none;
     width: 54dvh;
@@ -370,6 +402,7 @@ p {
     cursor: pointer;
     transition: border-color 0.3s, background-color 0.3s;
 }
+
 
 .preview-container:hover {
     border-color: var(--300);
@@ -413,6 +446,10 @@ p {
     margin: 2px 0;
 }
 
+#previewContainer {
+    display: none;
+}
+
 /*form*/
 
 form {
@@ -429,6 +466,7 @@ label {
 
 input {
     margin-top: 10px;
+    color: #d2d1d6;
     margin-bottom: 10px;
     border: 1px solid var(--500);
     border-radius: 8px;
@@ -448,7 +486,6 @@ input::placeholder {
 
 input[type="text"]:hover,
 input[type="email"]:hover {
-    border-color: #9ca3af;
     background-color: rgba(35, 34, 65, 0.7);
 }
 
@@ -475,7 +512,259 @@ button {
     font-size: medium;
 }
 
+/* Email error */
+.error-container {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    /* Espacio pequeño desde el input */
+}
 
+.error-container.show {
+    display: flex;
+}
+
+.error-text {
+    color: #FF6B6B;
+    /* Color rojo más suave como en la imagen */
+    font-size: 12px;
+    /* Tamaño más pequeño */
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Asegúrate que el ícono sea pequeño */
+.error-container picture img {
+    width: 16px;
+    height: 16px;
+}
+
+/*ticket */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.page-transition.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loader {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 3px solid #ff6b6b;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/*style ticket generated*/
+/* Estilos para el ticket */
+#ticketSection {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header del ticket */
+#ticketSection header h1 {
+    font-size: 48px;
+    font-weight: var(--fw-bold);
+    color: var(--Neutral);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-labels);
+}
+
+h1>.ticketName {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+#ticketMessage {
+    font-size: 18px;
+    color: var(--Neutral);
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-family: var(--font-labels);
+}
+
+#ticketEmail {
+    color: var(--Orange-500);
+    font-weight: var(--fw-bold);
+}
+
+/* Contenedor del ticket */
+.ticket-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Imagen del ticket */
+.ticket-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Overlay del ticket con contenido */
+.ticket-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 10;
+}
+
+/* Header del ticket interno */
+.ticket-header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: normal;
+    align-items: normal;
+    align-content: normal;
+
+}
+
+
+.ticket-logo {
+    margin-top: -70px;
+    width: 200px;
+    height: 200px;
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+
+.ticket-event-info h3 {
+    color: var(--Neutral);
+    font-size: 20px;
+    font-weight: var(--fw-bold);
+    margin: 0;
+    font-family: var(--font-labels);
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+}
+
+.ticket-date-location {
+    color: var(--300);
+    font-size: 14px;
+    margin-top: -75px;
+    margin-left: -340px;
+    font-family: var(--font-labels);
+    font-weight: var(--fw-regular);
+}
+
+/* Información del usuario en el ticket */
+.ticket-user-info {
+    display: flex;
+    align-items: start;
+    margin-left: 105px;
+    margin-bottom: 60px;
+}
+
+.user-details h4 {
+    color: var(--300);
+    font-size: 26px;
+    /* Reducido de 18px a 16px */
+    font-weight: var(--fw-medium);
+    margin: 0 0 4px 0;
+    margin-bottom: 10px;
+    font-family: var(--font-labels);
+}
+
+.user-details p {
+    color: var(--300);
+    font-size: 17px;
+    /* Reducido de 14px a 12px */
+    margin: 0;
+    font-family: var(--font-labels);
+    font-weight: var(--fw-regular);
+}
+
+/* Alineación del icono de GitHub con el texto */
+.user-details picture {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    /* Espacio entre el icono y el texto */
+}
+
+.user-details picture img {
+    width: 26px;
+    height: 26px;
+    display: block;
+}
+
+/* Imagen del usuario agregada por JavaScript */
+.ticket-user-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    object-fit: cover;
+    position: absolute;
+    bottom: 70px;
+    /* Ajusta según necesites */
+    left: 20px;
+    /* Ajusta según necesites */
+}
+
+
+/* ID del ticket */
+.ticket-id {
+    position: absolute;
+    bottom: 150px;
+    right: 85px;
+    color: var(--500);
+    font-size: 25px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--font-labels);
+    font-weight: var(--fw-regular);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 /* Responsivo */
 @media (max-width: 768px) {

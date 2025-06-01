@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="./Style.css">
+    <title>Frontend Mentor | Conference ticket generator</title>
+
+</head>
+
+<body>
+    <main class="main-container">
+        <picture class="logo-container">
+            <img class="logo-img" src="/conference-ticket-generator-main/assets/images/logo-full.svg" alt="">
+        </picture>
+        <!-- Background Imgs -->
+        <section class="img-container">
+            <picture class="img-linetop">
+                <img src="./assets/images/pattern-squiggly-line-top.svg" alt="">
+            </picture>
+            <picture class="img-circletop">
+                <img src="./assets/images/pattern-circle.svg" alt="">
+            </picture>
+            <picture class="img-linebottom">
+                <img src="./assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="">
+            </picture>
+            <picture class="img-circle">
+                <img src="./assets/images/pattern-circle.svg" alt="">
+            </picture>
+            <picture class="img-patternline">
+                <img src="./assets/images/pattern-lines.svg" alt="">
+            </picture>
+        </section>
+        <section id="ticketSection">
+            <header>
+                <h1>Congrats, <span class="ticketName"></span>!</h1>
+                <p id="ticketMessage">
+                    We've emailed your ticket to<br>
+                    <span id="ticketEmail"></span> and will send updates in<br>
+                    the run up to the event.
+                </p>
+            </header>
+
+            <div class="ticket-container">
+                <img class="ticket-img" src="/conference-ticket-generator-main/assets/images/pattern-ticket.svg"
+                    alt="Conference Ticket">
+
+                <div class="ticket-overlay">
+                    <div class="ticket-header">
+                        <img class="ticket-logo" src="/conference-ticket-generator-main/assets/images/logo-full.svg"
+                            alt="Coding Conf Logo">
+                        <div class="ticket-event-info">
+                            <!-- <h3>Coding Conf</h3> -->
+                            <p class="ticket-date-location">Jan 31, 2025 / Austin, TX</p>
+                        </div>
+                    </div>
+
+                    <div class="ticket-user-info">
+                        <div class="user-details" id="ticket-overlay">
+                            <h4 class="ticketName"></h4>
+                            <picture>
+                                <img src="/conference-ticket-generator-main/assets/images/icon-github.svg" alt="">
+                                <p id="ticketGithub"></p>
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="ticket-id">#60910</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="/conference-ticket-generator-main/ticket.js" defer></script>
+</body>
+
+</html>

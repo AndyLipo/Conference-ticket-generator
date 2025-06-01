@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="/Style.css">
+  <link rel="stylesheet" href="./Style.css">
   <title>Frontend Mentor | Conference ticket generator</title>
-
-
 </head>
 
 <body>
   <main class="main-container">
+    <picture class="logo-container">
+      <img class="logo-img" src="/conference-ticket-generator-main/assets/images/logo-full.svg" alt="">
+    </picture>
     <!-- Background Imgs -->
     <section class="img-container">
       <picture class="img-linetop">
@@ -64,7 +65,7 @@
 
         <!-- Preview Container -->
 
-        <div class="preview-container" id="previewContainer">
+        <div class="preview-container" id="previewContainer" style="display: none;">
           <img id="previewImage" class="preview-image" alt="Preview">
           <div class="preview-actions">
             <div class="button-container">
@@ -78,43 +79,74 @@
           <picture>
             <img src="/conference-ticket-generator-main/assets/images/icon-info.svg" alt="">
           </picture>
-          <p class="upload-info">Upload your photo (JPG or PNG, max size: 500KB).</p>
+          <p class="upload-info" id="uploadMessage">Upload your photo (JPG or PNG, max size: 500KB).</p>
         </div>
       </span>
-      <form>
-        <label for="fname">
+      <!-- Form starts -->
+      <form id="myForm">
+        <label for="ticketName">
           Full Name
         </label>
         <br />
-        <input type="text" name="fname" id="fname"></input>
+        <input type="text" name="ticketName" id="ticketName"></input>
         <br />
-        <label for="email">
+        <label for="ticketEmail">
           Email Address
         </label>
         <br />
-        <input type="email" name="email" id="email" placeholder="example@email.com"></input>
+        <input type="email" name="ticketEmail" id="ticketEmail" placeholder="example@email.com"></input>
+        <div class="error-container" id="errorContainer">
+          <picture id="errorIcon">
+            <img src="/conference-ticket-generator-main/assets/images/icon-info.svg" alt="">
+          </picture>
+          <p class="error-text" id="errorMessage"></p>
+        </div>
         <br />
-        <label for="github">
+        <label for="ticketGithub">
           GitHub Username
         </label>
         <br />
-        <input type="text" name="github" id="github" placeholder="@yourusername"></input>
-        <button type="submit">
+        <input type="text" name="ticketGithub" id="ticketGithub" placeholder="@yourusername"></input>
+        <button type="submit" id="btnTicket">
           Generate My Ticket
         </button>
       </form>
+      <!-- Form ends -->
       </span>
     </section>
+    <!-- Generated tickets starts -->
+    <!-- <section id="ticketSection" style="display: none;">
+      <header>
+        <h1 id="ticketTitle"></h1>
+        <p id="ticketMessage">
+          We've emailed your ticket to <br />
+          <span id="ticketEmail"></span> and will send updates in <br />
+          the run up to the event.
+        </p>
+      </header>
+      <picture class="ticket-container">
+        <img class="ticket-img" src="/conference-ticket-generator-main/assets/images/pattern-ticket.svg" alt="">
+         Overlay con datos del usuario 
+        <div class="ticket-overlay">
+          <div class="ticket-info">
+            <div class="Conf-img-container">
+              <picture>
+                <img class="Conf-img" src="/conference-ticket-generator-main/assets/images/logo-mark.svg" alt="">
+                <h3 class="Conf-h3">Coding Conf</h3>
+                <p>Jan 31, / Austin, TX</p>
+              </picture>
+            </div>
+            <h3 id="ticketName"></h3>
+            <p id="ticketGithub"></p>
+          </div>
+        </div>
+      </picture>
+    </section> -->
   </main>
-  <!-- Form starts -->
+  <!-- Congrats,  Full Name ! Your ticket is ready. 
 
-  <!-- Form ends -->
 
-  <!-- Generated tickets starts -->
-
-  <!-- Congrats,  Full Name ! Your ticket is ready.
-
-  We've emailed your ticket to  Email Address and will send updates in the run up to the event.
+  
 
   Coding Conf
   Jan 31, 2025 / Austin, TX -->
@@ -127,7 +159,7 @@
   </div>
 
 -->
-  <script src="/conference-ticket-generator-main/main.js"></script>
+  <script src="/conference-ticket-generator-main/index.js" defer></script>
 </body>
 
 </html>
